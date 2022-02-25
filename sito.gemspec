@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "Static site builder with support for data models, helpers, an admin, and more."
   spec.homepage = "https://github.com/brettchalupa/sito"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.required_ruby_version = ">= 2.7.5"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
