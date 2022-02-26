@@ -7,6 +7,10 @@ require "optparse"
 
 first_arg = ARGV[0]
 case first_arg
+when "help", "h", nil
+  puts "Sito CLI"
+  puts "Available commands:\n"
+  puts "\tversion - current version of the library"
 when "version", "v"
   puts Sito::VERSION
 else

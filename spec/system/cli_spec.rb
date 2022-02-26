@@ -7,6 +7,13 @@ RSpec.describe "CLI" do
     `ruby -Ilib ./exe/sito #{cmd}`
   end
 
+  describe "sito" do
+    it "outputs help" do
+      output = run_cmd(nil)
+      expect(output).to match(/Sito CLI/)
+    end
+  end
+
   describe "sito bogus" do
     it "outputs an error w/ help recommendation" do
       output = run_cmd("bogus")
@@ -15,14 +22,28 @@ RSpec.describe "CLI" do
     end
   end
 
-  describe "sito version" do
-    let(:output) { run_cmd("version") }
+  describe "sito help" do
+    it "outputs info about available commands" do
+      output = run_cmd("help")
+      expect(output).to match(/Sito CLI/)
+      expect(output).to match(/Available commands:/)
+      expect(output).to match(/version - current version of the library/)
+    end
 
+    it "supports the h alias" do
+      output = run_cmd("h")
+      expect(output).to match(/version - current version of the library/)
+    end
+  end
+
+  describe "sito version" do
     it "outputs the version" do
+      output = run_cmd("version")
       expect(output).to match(/#{Sito::VERSION}/)
     end
 
     it "supports the v alias" do
+      output = run_cmd("v")
       expect(output).to match(/#{Sito::VERSION}/)
     end
   end
