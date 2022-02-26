@@ -22,6 +22,19 @@ RSpec.describe "CLI" do
     end
   end
 
+  describe "sito build" do
+    let(:fixture_dir) { "spec/system/site" }
+    let(:build_dir) { "#{fixture_dir}/build" }
+
+    before { FileUtils.rm_rf(build_dir) }
+
+    it "generates the site" do
+      output = run_cmd("build #{fixture_dir}")
+      expect(output).to match(/Building site/)
+      expect(File.exist?("#{build_dir}/index.html")).to be(true)
+    end
+  end
+
   describe "sito help" do
     it "outputs info about available commands" do
       output = run_cmd("help")

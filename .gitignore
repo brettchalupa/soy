@@ -13,3 +13,5 @@
 Gemfile.lock
 
 *.gem
+
+spec/system/site/build/*

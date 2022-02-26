@@ -7,6 +7,9 @@ require "optparse"
 
 first_arg = ARGV[0]
 case first_arg
+when "build"
+  puts "Building site..."
+  Sito.build(ARGV[1])
 when "help", "h", nil
   puts "Sito CLI"
   puts "Available commands:\n"
