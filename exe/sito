@@ -13,6 +13,7 @@ when "build"
 when "help", "h", nil
   puts "Sito CLI"
   puts "Available commands:\n"
+  puts "\build - generate site in the build directory"
   puts "\tversion - current version of the library"
 when "version", "v"
   puts Sito::VERSION
