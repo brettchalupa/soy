@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Sito
+module Soy
   # Takes IO objects and runs them through ERB
   class Renderer
     def initialize(template, layout = nil)

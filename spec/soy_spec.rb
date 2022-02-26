@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Sito do
+RSpec.describe Soy do
   it "has a version number" do
-    expect(Sito::VERSION).not_to be nil
+    expect(Soy::VERSION).not_to be nil
   end
 
   describe ".build" do
@@ -21,8 +21,8 @@ RSpec.describe Sito do
       described_class.build(fixture_dir)
 
       index = File.read("#{build_dir}/index.html")
-      expect(index).to match(%r{<title>Sito Sample Site</title>})
-      expect(index).to match(%r{<h1>Hello from Sito</h1>})
+      expect(index).to match(%r{<title>Soy Sample Site</title>})
+      expect(index).to match(%r{<h1>Hello from Soy</h1>})
     end
 
     context "with a nil dir" do

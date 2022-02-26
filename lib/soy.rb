@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative "sito/version"
-require_relative "sito/renderer"
+require_relative "soy/version"
+require_relative "soy/renderer"
 
 require "erb"
 require "fileutils"
 
 # Entry point into the library
-module Sito
+module Soy
   class Error < StandardError; end
 
   def self.build(dir)
@@ -19,7 +19,7 @@ module Sito
 
     files.each do |file|
       bare_name = file.split("/").last.split(".").first
-      out = Sito::Renderer.new(File.read(file), layout).render
+      out = Soy::Renderer.new(File.read(file), layout).render
       File.write("#{dir}/build/#{bare_name}.html", out)
     end
   end

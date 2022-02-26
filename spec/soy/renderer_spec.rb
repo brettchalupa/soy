@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Sito::Renderer do
+RSpec.describe Soy::Renderer do
   describe "#render" do
     it "renders the template in the layout" do
       template = "<h1>Neat Page</h1>"

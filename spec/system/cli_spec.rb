@@ -4,25 +4,25 @@ require "spec_helper"
 
 RSpec.describe "CLI" do
   def run_cmd(cmd)
-    `ruby -Ilib ./exe/sito #{cmd}`
+    `ruby -Ilib ./exe/soy #{cmd}`
   end
 
-  describe "sito" do
+  describe "soy" do
     it "outputs help" do
       output = run_cmd(nil)
-      expect(output).to match(/Sito CLI/)
+      expect(output).to match(/Soy CLI/)
     end
   end
 
-  describe "sito bogus" do
+  describe "soy bogus" do
     it "outputs an error w/ help recommendation" do
       output = run_cmd("bogus")
       expect(output).to match(/`bogus` is not a command/)
-      expect(output).to match(/Run `sito help` for list of commands/)
+      expect(output).to match(/Run `soy help` for list of commands/)
     end
   end
 
-  describe "sito build" do
+  describe "soy build" do
     let(:fixture_dir) { "spec/system/site" }
     let(:build_dir) { "#{fixture_dir}/build" }
 
@@ -41,10 +41,10 @@ RSpec.describe "CLI" do
     end
   end
 
-  describe "sito help" do
+  describe "soy help" do
     it "outputs info about available commands" do
       output = run_cmd("help")
-      expect(output).to match(/Sito CLI/)
+      expect(output).to match(/Soy CLI/)
       expect(output).to match(/Available commands:/)
       expect(output).to match(/version \(v\) - current version of the library/)
     end
@@ -55,15 +55,15 @@ RSpec.describe "CLI" do
     end
   end
 
-  describe "sito version" do
+  describe "soy version" do
     it "outputs the version" do
       output = run_cmd("version")
-      expect(output).to match(/#{Sito::VERSION}/)
+      expect(output).to match(/#{Soy::VERSION}/)
     end
 
     it "supports the v alias" do
       output = run_cmd("v")
-      expect(output).to match(/#{Sito::VERSION}/)
+      expect(output).to match(/#{Soy::VERSION}/)
     end
   end
 end

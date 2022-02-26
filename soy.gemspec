@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative "lib/sito/version"
+require_relative "lib/soy/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "sito"
-  spec.version = Sito::VERSION
+  spec.name = "soy"
+  spec.version = Soy::VERSION
   spec.authors = ["Brett Chalupa"]
   spec.email = ["brettchalupa@gmail.com"]
 
   spec.summary = "Data-backed static site generator"
   spec.description = "Static site builder with support for data models, helpers, an admin, and more."
-  spec.homepage = "https://github.com/brettchalupa/sito"
+  spec.homepage = "https://github.com/brettchalupa/soy"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.7.5"
 
