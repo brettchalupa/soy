@@ -3,4 +3,13 @@
 
 require "sito"
 
-puts Sito::VERSION
+require "optparse"
+
+first_arg = ARGV[0]
+case first_arg
+when "version", "v"
+  puts Sito::VERSION
+else
+  puts "`#{first_arg}` is not a command"
+  puts "Run `sito help` for list of commands"
+end
