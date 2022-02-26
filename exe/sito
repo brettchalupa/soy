@@ -10,6 +10,7 @@ case first_arg
 when "build"
   puts "Building site..."
   Sito.build(ARGV[1])
+  puts "Site successfully built"
 when "help", "h", nil
   puts "Sito CLI"
   puts "Available commands:\n"
