@@ -3,7 +3,7 @@
 module Sito
   # Takes IO objects and runs them through ERB
   class Renderer
-    def initialize(template, layout)
+    def initialize(template, layout = nil)
       @template = template
       @layout = layout
     end
@@ -17,7 +17,11 @@ module Sito
     private
 
     def _render(template)
-      ERB.new(template).result(binding)
+      if template.nil?
+        yield
+      else
+        ERB.new(template).result(binding)
+      end
     end
   end
 end

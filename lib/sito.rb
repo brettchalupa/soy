@@ -19,8 +19,8 @@ module Sito
 
     files.each do |file|
       bare_name = file.split("/").last.split(".").first
-
-      File.write("#{dir}/build/#{bare_name}.html", Sito::Renderer.new(File.read(file), layout).render)
+      out = Sito::Renderer.new(File.read(file), layout).render
+      File.write("#{dir}/build/#{bare_name}.html", out)
     end
   end
 end
