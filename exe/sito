@@ -3,8 +3,6 @@
 
 require "sito"
 
-require "optparse"
-
 def elapsed
   starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
   yield
