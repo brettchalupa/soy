@@ -11,6 +11,7 @@ module Sito
   class Error < StandardError; end
 
   def self.build(dir)
+    dir ||= Dir.pwd
     FileUtils.mkdir_p("#{dir}/build")
 
     layout = File.read("#{dir}/views/layout.html.erb")
