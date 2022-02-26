@@ -31,7 +31,13 @@ RSpec.describe "CLI" do
     it "generates the site" do
       output = run_cmd("build #{fixture_dir}")
       expect(output).to match(/Building site/)
+      expect(output).to match(/built in \d.\d+ seconds/)
       expect(File.exist?("#{build_dir}/index.html")).to be(true)
+    end
+
+    it "supports the b alias" do
+      output = run_cmd("b #{fixture_dir}")
+      expect(output).to match(/Building site/)
     end
   end
 
@@ -40,12 +46,12 @@ RSpec.describe "CLI" do
       output = run_cmd("help")
       expect(output).to match(/Sito CLI/)
       expect(output).to match(/Available commands:/)
-      expect(output).to match(/version - current version of the library/)
+      expect(output).to match(/version \(v\) - current version of the library/)
     end
 
     it "supports the h alias" do
       output = run_cmd("h")
-      expect(output).to match(/version - current version of the library/)
+      expect(output).to match(/version \(v\) - current version of the library/)
     end
   end
 

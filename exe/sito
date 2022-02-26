@@ -5,17 +5,26 @@ require "sito"
 
 require "optparse"
 
+def elapsed
+  starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+  yield
+  ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+  (ending - starting).round(6)
+end
+
 first_arg = ARGV[0]
 case first_arg
-when "build"
+when "build", "b"
   puts "Building site..."
-  Sito.build(ARGV[1])
-  puts "Site successfully built"
+  time = elapsed do
+    Sito.build(ARGV[1])
+  end
+  puts "Site successfully built in #{time} seconds"
 when "help", "h", nil
   puts "Sito CLI"
   puts "Available commands:\n"
-  puts "\tbuild - generate site in the build directory"
-  puts "\tversion - current version of the library"
+  puts "\tbuild (b) - generate site in the build directory"
+  puts "\tversion (v) - current version of the library"
 when "version", "v"
   puts Sito::VERSION
 else
