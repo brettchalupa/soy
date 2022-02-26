@@ -9,9 +9,7 @@ RSpec.describe Sito do
     let(:fixture_dir) { "spec/system/site" }
     let(:build_dir) { "#{fixture_dir}/build" }
 
-    before do
-      FileUtils.rm_rf(build_dir)
-    end
+    before { FileUtils.rm_rf(build_dir) }
 
     it "makes the build dir" do
       described_class.build(fixture_dir)
