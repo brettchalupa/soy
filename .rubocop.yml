@@ -1,3 +1,7 @@
+require:
+  - rubocop-rspec
+  - rubocop-rake
+
 AllCops:
   NewCops: enable
 
@@ -15,3 +19,6 @@ Layout/LineLength:
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*.rb"
+
+RSpec/MultipleExpectations:
+  Enabled: false
