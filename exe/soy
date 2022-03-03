@@ -19,7 +19,7 @@ when "build", "b"
   end
   puts "Site successfully built in #{time} seconds"
 when "help", "h", "-h", "--help", nil
-  puts "Soy CLI"
+  puts "Soy v#{Soy::VERSION}\n\n"
   puts "Available commands:\n"
   puts "\tbuild (b) - generate site in the build directory"
   puts "\tserver (s) - rebuild site on changes and start HTTP server"

@@ -10,7 +10,7 @@ RSpec.describe "CLI" do
   describe "soy" do
     it "outputs help" do
       output = run_cmd(nil)
-      expect(output).to match(/Soy CLI/)
+      expect(output).to match(/Soy v/)
     end
   end
 
@@ -44,7 +44,7 @@ RSpec.describe "CLI" do
   describe "soy help" do
     it "outputs info about available commands" do
       output = run_cmd("help")
-      expect(output).to match(/Soy CLI/)
+      expect(output).to match(/Soy v/)
       expect(output).to match(/Available commands:/)
       expect(output).to match(/version \(v\) - current version of the library/)
     end
