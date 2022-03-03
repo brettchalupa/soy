@@ -22,6 +22,7 @@ when "help", "h", "-h", "--help", nil
   puts "Soy CLI"
   puts "Available commands:\n"
   puts "\tbuild (b) - generate site in the build directory"
+  puts "\tserver (s) - rebuild site on changes and start HTTP server"
   puts "\tversion (v) - current version of the library"
 when "server", "serve", "s"
   Soy::Server.start(ARGV[1])
