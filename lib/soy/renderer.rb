@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 
+require "soy/page"
+
 module Soy
   # Takes IO objects and runs them through ERB
   class Renderer
     def initialize(template, layout = nil)
       @template = template
       @layout = layout
+      @page = Page.new
     end
 
     def render
-      _render(@layout) do
-        _render(@template)
-      end
+      template = _render(@template)
+      _render(@layout) { template }
     end
 
     private

@@ -11,6 +11,13 @@ RSpec.describe Soy::Renderer do
       expect(out).to eql("[Header] <h1>Neat Page</h1>")
     end
 
+    it "supports setting template details that render in the layout" do
+      template = "<% @page.set(title: 'Neat Page') %> <h1><%= @page.title %></h1>"
+      layout = "<title><%= @page.title %></title><%= yield %>"
+      out = described_class.new(template, layout).render
+      expect(out).to eql("<title>Neat Page</title> <h1>Neat Page</h1>")
+    end
+
     context "when layout is not specified" do
       it "defaults to nil" do
         template = "<h1>Neat Page</h1>"
