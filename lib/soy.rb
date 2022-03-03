@@ -15,4 +15,9 @@ module Soy
     dir ||= Dir.pwd
     Builder.new(dir).call
   end
+
+  def self.new_site(name)
+    FileUtils.cp_r("#{__dir__}/soy/template/", name)
+    puts "New Soy site created, view in: #{name}"
+  end
 end
