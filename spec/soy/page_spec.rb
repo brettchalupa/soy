@@ -7,8 +7,12 @@ RSpec.describe Soy::Page do
 
   describe "#set" do
     it "assigns attr readers for the passed in keys and values" do
-      page.set(title: "Top 10 Dogs")
+      page.set(title: "Top 10 Dogs", description: "So many doggos")
+
       expect(page.title).to eql("Top 10 Dogs")
+      expect(page.description).to eql("So many doggos")
+
+      expect { page.invalid }.to raise_error(NoMethodError)
     end
 
     it "only accepts Hash args" do
