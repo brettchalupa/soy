@@ -55,6 +55,22 @@ RSpec.describe "CLI" do
     end
   end
 
+  describe "soy new" do
+    it "generates a new site from the template" do
+      FileUtils.rm_rf("recipes")
+
+      output = run_cmd("new recipes")
+
+      expect(output).to match(/New Soy site created, view in: recipes/)
+
+      expect(File.exist?("recipes/content/index.html.erb")).to be(true)
+      expect(File.exist?("recipes/views/layout.html.erb")).to be(true)
+      expect(File.read("recipes/.gitignore")).to match(/build/)
+
+      FileUtils.rm_rf("recipes")
+    end
+  end
+
   describe "soy version" do
     it "outputs the version" do
       output = run_cmd("version")

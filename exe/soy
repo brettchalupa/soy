@@ -22,11 +22,14 @@ when "help", "h", "-h", "--help", nil
   puts "Soy v#{Soy::VERSION}\n\n"
   puts "Available commands:\n"
   puts "\tbuild (b) - generate site in the build directory"
+  puts "\tnew (n) - create a new Soy site\n\t\tsoy new SITE_NAME"
   puts "\tserver (s) - rebuild site on changes and start HTTP server"
   puts "\tversion (v) - current version of the library"
+when "new", "n"
+  Soy.new_site(ARGV[1])
 when "server", "serve", "s"
   Soy::Server.start(ARGV[1])
-when "version", "v"
+when "version", "v", "-v", "--v"
   puts Soy::VERSION
 else
   puts "`#{first_arg}` is not a command"
