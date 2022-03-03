@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 require "rack"
+require "rack/common_logger"
+require "rack/lint"
 require "rack/server"
+require "rack/show_exceptions"
 
 module Soy
   # Container of data for a given page
@@ -11,7 +14,13 @@ module Soy
       output_dir = "#{dir}/build"
       puts "Serving files from #{output_dir}"
       Rack::Server.start(
-        app: Rack::Static.new(new, urls: [""], root: output_dir, index: "index.html"),
+        app: Rack::CommonLogger.new(
+          Rack::ShowExceptions.new(
+            Rack::Lint.new(
+              Rack::Static.new(new, urls: [""], root: output_dir, index: "index.html")
+            )
+          )
+        ),
         Port: 9292 # TODO: configurable port
       )
     end
