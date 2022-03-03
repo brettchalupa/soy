@@ -1,0 +1,45 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  margin: 12px auto;
+  max-width: 960px;
+}
+
+.main-nav {
+  display: flex;
+  margin-left: auto;
+}
+
+.main-nav > * {
+  margin-left: 12px;
+}
+
+.main-nav > *:first-child {
+  margin-left: 0;
+}
+
+header img {
+  max-width: 64px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.anchor-plain {
+  text-decoration: none;
+}
+
+blockquote {
+  border-left: 4px solid black;
+  padding: 12px;
+  font-size: 16px;
+  font-style: italic;
+}
