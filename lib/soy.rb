@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "soy/version"
 require_relative "soy/renderer"
+require_relative "soy/server"
+require_relative "soy/version"
 
 require "erb"
 require "fileutils"

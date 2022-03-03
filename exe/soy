@@ -23,6 +23,8 @@ when "help", "h", nil
   puts "Available commands:\n"
   puts "\tbuild (b) - generate site in the build directory"
   puts "\tversion (v) - current version of the library"
+when "server", "serve", "s"
+  Soy::Server.start(ARGV[1])
 when "version", "v"
   puts Soy::VERSION
 else
