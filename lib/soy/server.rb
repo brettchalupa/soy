@@ -21,7 +21,7 @@ module Soy
             )
           )
         ),
-        Port: 9292 # TODO: configurable port
+        Port: 9292
       )
     end
 
