@@ -30,6 +30,12 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+## Demo Site
+
+The `./demo/` directory includes a site that can be built with Soy to test works in progress and experiment with new features. It intends to use as many of the features as possible with the project.
+
+The `bin/soy` binstub can be used to run the local repo's code, so `bin/soy build demo` will build the demo site.
+
 ## Supported Ruby Versions
 
 Soy supports the stable releases of Ruby versions, [see ruby-lang.org](https://www.ruby-lang.org/en/downloads/)
