@@ -50,15 +50,19 @@ Soy requires a modern, stable Ruby, [see ruby-lang.org](https://www.ruby-lang.or
 - 3.0.3
 - 2.7.5
 
-Then install Soy with `gem install soy`
+1. Install Soy with `gem install soy`
+2. Create a new site with `soy new YOUR_SITE_NAME`
+3. Move into it the new site's directory
+4. Run `soy server` to get to building!
 
-You're now ready to use the `soy` command to build your site.
+Your site will then be accessible at [localhost:9292](http://localhost:9292)
 
 ## Usage
 
 `soy` or `soy help` will output the commands that are available, but the most
 common ones are:
 
+- `soy new your_site_name` – create a new site from Soy's basic template
 - `soy build` – generate the HTML for your site
 - `soy server` – start up a web server to handle requests & watch for site changes to trigger rebuilds
 
