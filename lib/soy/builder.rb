@@ -7,11 +7,11 @@ module Soy
   class Builder
     def initialize(project_dir)
       @project_dir = project_dir
-      @layout = File.read("#{@project_dir}/views/layout.html.erb")
       @build_dir = "#{@project_dir}/build/"
     end
 
     def call
+      @layout = File.read("#{@project_dir}/views/layout.html.erb")
       FileUtils.mkdir_p(@build_dir)
       process_dir("#{@project_dir}/content")
     end
