@@ -4,15 +4,25 @@
     <link href="/styles.css" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <span class="site-title">Soy Demo Site</span>
+    <div class="wrapper">
+      <header class="flex-center">
+        <a href="/">
+          <img src="/tofu.png" />
+        </a>
 
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about.html">About</a>
-      </nav>
-    </header>
+        <span class="bold">
+          <a href="/" class="anchor-plain">
+            Soy Demo Site
+          </a>
+        </span>
 
-    <%= yield %>
+        <nav class="main-nav">
+          <a href="/">Home</a>
+          <a href="/about.html">About</a>
+        </nav>
+      </header>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
