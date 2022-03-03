@@ -36,3 +36,10 @@ header img {
 .anchor-plain {
   text-decoration: none;
 }
+
+blockquote {
+  border-left: 4px solid black;
+  padding: 12px;
+  font-size: 16px;
+  font-style: italic;
+}
