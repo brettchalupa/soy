@@ -22,11 +22,15 @@ RSpec.describe "soy build" do
 
       <h1>Hello from Soy</h1>
 
+      <img src="/tofu.png" alt="Drawn image of a brick of tofu with eyes and a smile" />
+
         </body>
       </html>
     HTML
 
     expect(File.read("#{build_dir}/index.html")).to eql(html_output)
+
+    expect(Dir.glob("#{build_dir}/**")).to eql(["#{build_dir}/image.png", "#{build_dir}/index.html"])
   end
 
   it "supports the b alias" do
