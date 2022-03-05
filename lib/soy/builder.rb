@@ -11,7 +11,6 @@ module Soy
     end
 
     def call
-      @layout = File.read("#{@project_dir}/views/layout.html.erb")
       FileUtils.mkdir_p(@build_dir)
       process_dir("#{@project_dir}/content")
     end
@@ -19,16 +18,20 @@ module Soy
     private
 
     def process_dir(dir)
-      content = Dir.glob("#{dir}/*")
+      Dir.glob("#{dir}/*").each do |file|
+        process_file(file)
+      end
+    end
 
-      content.each do |file|
-        if file =~ /html.erb$/
-          bare_name = file.split("/").last.split(".").first
-          out = Soy::Renderer.new(File.read(file), @layout).render
-          File.write("#{@build_dir}/#{bare_name}.html", out)
-        else
-          FileUtils.cp(file, @build_dir)
-        end
+    def process_file(file)
+      template = Soy::File.new(file)
+
+      if template.render_with_erb?
+        layout = Soy::File.new("#{@project_dir}/views/layout.html.erb")
+        out = Soy::Renderer.new(template, layout).render
+        ::File.write("#{@build_dir}/#{template.rendered_name}", out)
+      else
+        FileUtils.cp(file, @build_dir)
       end
     end
   end

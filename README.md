@@ -73,8 +73,36 @@ Browse `./demo/` to see a full site, but here's a breakdown of what goes into a 
 - `build/` – where the HTML is output to & served from locally, don't check this in
 - `content/` – where pages, images, styles, etc. live
     - e.g. `index.html.erb`
+    - e.g. `about.md`
 - `views/` – where page layouts live (to be evaluated)
     - `layout.html.erb` — default HTML page layout
+
+## Content
+
+Soy content lives in the `content/` directory. If the file name ends in `.erb`,
+it'll get run through the Soy renderer for ERB.
+
+Content can be authored in Markdown, which outputs HTML.
+
+HTML and Markdown files don't need the `.erb` file extension, they'll always
+get run through ERB. So that's optional and totally up to you. `.erb` can help
+with syntax highlighting in your editor.
+
+ERB content will be rendered inside the layout specified in
+`views/layout.html.erb`.
+
+ERB is neat because you can use whatever Ruby you want within it. Here's an
+example with Markdown:
+
+``` markdown
+<% @title = "Neat Products Made of Soy" %>
+
+# <%= @title %>
+
+<% ["tofu", "tempeh", "edamame"].each do |product| %>
+- <%= product %>
+<% end %>
+```
 
 ## Development
 

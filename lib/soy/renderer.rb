@@ -1,20 +1,27 @@
 # frozen_string_literal: true
 
+require "kramdown"
 require "soy/page"
 
 module Soy
-  # Takes IO objects and runs them through ERB
+  # Runs the template through ERB and generates HTML from it, within optional
+  # layout.
   class Renderer
-    def initialize(template, layout = nil)
+    # template, +Soy::File+ instance
+    # layout, +Soy::File+ instance
+    def initialize(template, layout)
       @template = template
       @layout = layout
+
       @page = Page.new
     end
 
     def render
-      template = _render(@template)
-      out = _render(@layout) { template }
-      out.gsub(/^\s+$/, "")
+      out = _render(@template)
+      out = convert_template(out)
+      out = _render(@layout) { out }
+      out = out.gsub(/^\s+$/, "")
+      out.gsub(/\A\n/, "")
     end
 
     private
@@ -23,8 +30,14 @@ module Soy
       if template.nil?
         yield
       else
-        ERB.new(template).result(binding)
+        ERB.new(template.read).result(binding)
       end
+    end
+
+    def convert_template(text)
+      text = Kramdown::Document.new(text).to_html if @template.markdown?
+
+      text
     end
   end
 end
