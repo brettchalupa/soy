@@ -46,9 +46,10 @@ fermenting...
 
 Soy requires a modern, stable Ruby, [see ruby-lang.org](https://www.ruby-lang.org/en/downloads/)
 
-- 3.1.1
-- 3.0.3
-- 2.7.5
+Supported Rubies:
+- 3.1
+- 3.0
+- 2.7
 
 1. Install Soy with `gem install soy`
 2. Create a new site with `soy new YOUR_SITE_NAME`

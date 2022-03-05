@@ -26,7 +26,10 @@ RSpec.describe Soy::Builder do
     end
 
     context "with a nil dir" do
-      it "defaults to the current dir"
+      it "defaults to the current dir" do
+        builder = described_class.new(nil)
+        expect(builder.instance_variable_get(:@project_dir)).to eql(Dir.pwd)
+      end
     end
   end
 end
