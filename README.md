@@ -123,6 +123,8 @@ of the features as possible with the project.
 The `bin/soy` binstub can be used to run the local repo's code, so `bin/soy
 build demo` will build the demo site.
 
+[View the demo site on Netlify.](https://soy-demo.netlify.app)
+
 ## Releasing New Versions
 
 To release a new version, update the version number in `version.rb`, and then run
