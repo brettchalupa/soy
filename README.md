@@ -83,8 +83,12 @@ Browse `./demo/` to see a full site, but here's a breakdown of what goes into a 
 Soy content lives in the `content/` directory. If the file name ends in `.erb`,
 it'll get run through the Soy renderer for ERB.
 
+### Markdown
+
 Content can be authored in Markdown, which outputs HTML. Soy uses
 [Kramdown](https://rubygems.org/gems/kramdown) for Markdown parsing.
+
+### ERB
 
 HTML and Markdown files don't need the `.erb` file extension, they'll always
 get run through ERB. So that's optional and totally up to you. `.erb` can help
@@ -105,6 +109,27 @@ example with Markdown:
 - <%= product %>
 <% end %>
 ```
+
+### Links
+
+Link to pages and content using the relative path. Markdown example:
+
+``` markdown
+Check out [my super cool link](/cool-link).
+```
+
+That would link to the `cool-link.html` page in the build dir.
+
+The Soy development server (and many hosts) handle extension-less HTML
+requests.
+
+You can include the extension if you want to:
+
+``` markdown
+Check out [my super cool link](/cool-link.html).
+```
+
+It's really up to you and your preferences.
 
 ## Development
 
