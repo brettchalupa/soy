@@ -23,7 +23,7 @@ RSpec.describe "CLI" do
   end
 
   describe "soy build" do
-    let(:fixture_dir) { "spec/system/site" }
+    let(:fixture_dir) { "spec/fixtures/site" }
     let(:build_dir) { "#{fixture_dir}/build" }
 
     before { FileUtils.rm_rf(build_dir) }
