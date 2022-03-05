@@ -6,7 +6,7 @@ module Soy
   # Builds the static site content
   class Builder
     def initialize(project_dir)
-      @project_dir = project_dir
+      @project_dir = project_dir || Dir.pwd
       @build_dir = "#{@project_dir}/build/"
     end
 

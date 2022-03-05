@@ -5,28 +5,15 @@ RSpec.describe Soy do
     expect(Soy::VERSION).not_to be_nil
   end
 
-  describe ".build" do
-    let(:fixture_dir) { "spec/fixtures/site" }
-    let(:build_dir) { "#{fixture_dir}/build" }
+  describe ".new_site" do
+    let(:site) { "new_site" }
 
-    before { FileUtils.rm_rf(build_dir) }
+    it "recursively copies the template dir into the passed in dir" do
+      expect(FileUtils).to receive(:cp_r).with(%r{lib/soy/template}, site)
 
-    it "makes the build dir" do
-      described_class.build(fixture_dir)
-
-      expect(Dir.exist?(build_dir)).to be(true)
-    end
-
-    it "generates HTML pages for the content rendered in the layout" do
-      described_class.build(fixture_dir)
-
-      index = File.read("#{build_dir}/index.html")
-      expect(index).to match(%r{<title>Hello, world!</title>})
-      expect(index).to match(%r{<h1>Hello from Soy</h1>})
-    end
-
-    context "with a nil dir" do
-      it "defaults to the current dir"
+      expect do
+        described_class.new_site("new_site")
+      end.to output(/site created/).to_stdout
     end
   end
 end
