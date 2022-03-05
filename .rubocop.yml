@@ -33,3 +33,6 @@ RSpec/ExampleLength:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
+
+RSpec/ReturnFromStub:
+  EnforcedStyle: block
