@@ -3,6 +3,7 @@
 require_relative "soy/builder"
 require_relative "soy/file"
 require_relative "soy/renderer"
+require_relative "soy/routes"
 require_relative "soy/server"
 require_relative "soy/version"
 

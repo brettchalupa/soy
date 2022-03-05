@@ -1,0 +1,5 @@
+root: /
+about: /about
+neat: /neat
+posts: /posts
+post: /posts/:slug

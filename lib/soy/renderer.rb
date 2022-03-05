@@ -24,6 +24,24 @@ module Soy
       out.gsub(/\A\n/, "")
     end
 
+    def link_to(href, text=nil, args={})
+      href = href.is_a?(Symbol) ? path_for(href) : href
+
+      "<a href='#{href}'" +
+        "class='#{args.fetch(:class, nil)}'>" +
+        "#{block_given? ? yield : text }</a>"
+    end
+
+    def path_for(route, args={})
+      path = Routes.path(route)
+
+      args.each do |k, v|
+        path = path.gsub(":#{k}", v)
+      end
+
+      path
+    end
+
     private
 
     def _render(template)

@@ -6,20 +6,19 @@
   <body>
     <div class="wrapper">
       <header class="flex-center">
-        <a href="/">
+        <% link_to :root do %>
           <img src="/tofu.png" />
-        </a>
+        <% end %>
 
         <span class="bold">
-          <a href="/" class="anchor-plain">
-            Soy Demo Site
-          </a>
+          <%= link_to(path_for(:root), "Soy Demo Site", class: "anchor-plain") %>
         </span>
 
         <nav class="main-nav">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/neat">Neat</a>
+          <%= link_to(path_for(:root), "Home") %>
+          <%= link_to(path_for(:about), "About") %>
+          <%= link_to(path_for(:neat), "Neat") %>
+          <%= link_to(path_for(:post, slug: "hello-world"), "Hello World") %>
         </nav>
       </header>
 

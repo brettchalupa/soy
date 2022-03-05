@@ -11,6 +11,7 @@ module Soy
     end
 
     def call
+      Routes.load(@project_dir)
       FileUtils.mkdir_p(@build_dir)
       process_dir("#{@project_dir}/content")
     end
