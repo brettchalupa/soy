@@ -29,7 +29,7 @@ when "new", "n"
   Soy.new_site(ARGV[1])
 when "server", "serve", "s"
   Soy::Server.start(ARGV[1])
-when "version", "v", "-v", "--v"
+when "version", "v", "-v", "--version"
   puts Soy::VERSION
 else
   puts "`#{first_arg}` is not a command"

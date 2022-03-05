@@ -49,9 +49,11 @@ RSpec.describe "CLI" do
       expect(output).to match(/version \(v\) - current version of the library/)
     end
 
-    it "supports the h alias" do
-      output = run_cmd("h")
-      expect(output).to match(/version \(v\) - current version of the library/)
+    ["h", "-h", "--help"].each do |ali|
+      it "supports the #{ali} alias" do
+        output = run_cmd(ali)
+        expect(output).to match(/version \(v\) - current version of the library/)
+      end
     end
   end
 
@@ -77,9 +79,11 @@ RSpec.describe "CLI" do
       expect(output).to match(/#{Soy::VERSION}/)
     end
 
-    it "supports the v alias" do
-      output = run_cmd("v")
-      expect(output).to match(/#{Soy::VERSION}/)
+    ["v", "-v", "--version"].each do |ali|
+      it "supports the #{ali} alias" do
+        output = run_cmd(ali)
+        expect(output).to match(/#{Soy::VERSION}/)
+      end
     end
   end
 end
