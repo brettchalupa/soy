@@ -82,7 +82,8 @@ Browse `./demo/` to see a full site, but here's a breakdown of what goes into a 
 Soy content lives in the `content/` directory. If the file name ends in `.erb`,
 it'll get run through the Soy renderer for ERB.
 
-Content can be authored in Markdown, which outputs HTML.
+Content can be authored in Markdown, which outputs HTML. Soy uses
+[Kramdown](https://rubygems.org/gems/kramdown) for Markdown parsing.
 
 HTML and Markdown files don't need the `.erb` file extension, they'll always
 get run through ERB. So that's optional and totally up to you. `.erb` can help
