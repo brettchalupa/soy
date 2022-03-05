@@ -21,7 +21,7 @@ RSpec.describe Soy do
       described_class.build(fixture_dir)
 
       index = File.read("#{build_dir}/index.html")
-      expect(index).to match(%r{<title>Soy Sample Site</title>})
+      expect(index).to match(%r{<title>Hello, world!</title>})
       expect(index).to match(%r{<h1>Hello from Soy</h1>})
     end
 
