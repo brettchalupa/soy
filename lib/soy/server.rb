@@ -48,14 +48,29 @@ module Soy
         Rack::ShowExceptions.new(
           Rack::Lint.new(
             Rack::Static.new(
-              -> { [200, { "Content-Type" => "text/html" }, ["Hello from Soy!"]] },
+              bare_finder_with_404_fallback,
               urls: [""],
               root: @output_dir,
+              cascade: true,
               index: "index.html"
             )
           )
         )
       )
+    end
+
+    def bare_finder_with_404_fallback
+      lambda do |env|
+        request_path = env["REQUEST_PATH"]
+        file_path = "#{@output_dir + request_path}.html"
+        [200, { "Content-Type" => "text/html;charset=utf8" }, [::File.read(file_path)]]
+      rescue Errno::ENOENT => e
+        [
+          404,
+          { "Content-Type" => "text/plain;charset=utf8" },
+          ["File Not Found\n\n#{e.message}\n\nCreate content to match the path.\n\n༼☯﹏☯༽"]
+        ]
+      end
     end
   end
 end
