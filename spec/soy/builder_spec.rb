@@ -25,9 +25,6 @@ RSpec.describe Soy::Builder do
       expect(index).to match(%r{<h1>Hello from Soy</h1>})
     end
 
-    it "renders ERB files"
-    it "just copies non-erb files"
-
     context "with a nil dir" do
       it "defaults to the current dir"
     end
