@@ -13,7 +13,8 @@ module Soy
 
     def render
       template = _render(@template)
-      _render(@layout) { template }
+      out = _render(@layout) { template }
+      out.gsub(/^\s+$/, "")
     end
 
     private

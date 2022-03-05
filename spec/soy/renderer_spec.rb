@@ -18,6 +18,12 @@ RSpec.describe Soy::Renderer do
       expect(out).to eql("<title>Neat Page</title> <h1>Neat Page</h1>")
     end
 
+    it "strips lines with just whitespace" do
+      template = "\n\n  <% 'hi' %>\n hi\n"
+      out = described_class.new(template).render
+      expect(out).to eql("\n hi\n")
+    end
+
     context "when layout is not specified" do
       it "defaults to nil" do
         template = "<h1>Neat Page</h1>"
