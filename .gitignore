@@ -14,6 +14,6 @@ Gemfile.lock
 
 *.gem
 
-spec/system/site/build/*
+spec/fixtures/site/build/*
 
 demo/build
