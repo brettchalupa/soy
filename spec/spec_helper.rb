@@ -17,3 +17,7 @@ RSpec.configure do |config|
     meta[:aggregate_failures] = true
   end
 end
+
+def run_cmd(cmd)
+  `ruby -Ilib ./exe/soy #{cmd}`
+end

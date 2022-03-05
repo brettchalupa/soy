@@ -15,7 +15,7 @@ case first_arg
 when "build", "b"
   puts "Building site..."
   time = elapsed do
-    Soy.build(ARGV[1])
+    Soy::Builder.new(ARGV[1]).call
   end
   puts "Site successfully built in #{time} seconds"
 when "help", "h", "-h", "--help", nil
@@ -29,7 +29,7 @@ when "new", "n"
   Soy.new_site(ARGV[1])
 when "server", "serve", "s"
   Soy::Server.start(ARGV[1])
-when "version", "v", "-v", "--v"
+when "version", "v", "-v", "--version"
   puts Soy::VERSION
 else
   puts "`#{first_arg}` is not a command"
