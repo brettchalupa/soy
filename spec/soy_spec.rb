@@ -2,7 +2,7 @@
 
 RSpec.describe Soy do
   it "has a version number" do
-    expect(Soy::VERSION).not_to be_nil
+    expect(Soy::VERSION).to_not be_nil
   end
 
   describe ".new_site" do

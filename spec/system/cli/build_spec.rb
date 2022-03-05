@@ -13,7 +13,7 @@ RSpec.describe "soy build" do
     expect(cmd_output).to match(/Building site/)
     expect(cmd_output).to match(/built in \d.\d+ seconds/)
 
-    html_output = <<~HTML
+    html_index_output = <<~HTML
       <html>
         <head>
           <title>Hello, world!</title>
@@ -28,9 +28,52 @@ RSpec.describe "soy build" do
       </html>
     HTML
 
-    expect(File.read("#{build_dir}/index.html")).to eql(html_output)
+    expect(File.read("#{build_dir}/index.html")).to eql(html_index_output)
 
-    expect(Dir.glob("#{build_dir}/**")).to eql(["#{build_dir}/image.png", "#{build_dir}/index.html"])
+    html_about_output = <<~HTML
+      <html>
+        <head>
+          <title>About</title>
+        </head>
+        <body>
+
+      <h1 id="about-soy">About Soy</h1>
+
+      <p>Soy is a static site generator.</p>
+
+      <blockquote>
+        <p>Deeply thought provoking quote.</p>
+      </blockquote>
+
+        </body>
+      </html>
+    HTML
+
+    expect(File.read("#{build_dir}/about.html")).to eql(html_about_output)
+
+    html_contact_output = <<~HTML
+      <html>
+        <head>
+          <title>Contact</title>
+        </head>
+        <body>
+
+      <h1 id="contact">Contact</h1>
+
+      <p>If you’d like to contact me, please send an encrypted message over TofuMail.</p>
+
+        </body>
+      </html>
+    HTML
+
+    expect(File.read("#{build_dir}/contact.html")).to eql(html_contact_output)
+
+    expect(Dir.glob("#{build_dir}/**")).to contain_exactly(
+      "#{build_dir}/image.png",
+      "#{build_dir}/about.html",
+      "#{build_dir}/contact.html",
+      "#{build_dir}/index.html"
+    )
   end
 
   it "supports the b alias" do
