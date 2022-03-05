@@ -17,3 +17,5 @@ Gemfile.lock
 spec/fixtures/site/build/*
 
 demo/build
+
+new_site
