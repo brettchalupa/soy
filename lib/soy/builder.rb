@@ -34,7 +34,7 @@ module Soy
     def process_file(file_path)
       file = Soy::File.new(file_path)
 
-      dest = file_path.gsub(@content_dir, @build_dir).gsub(%r{/\w+(\.\w+)+$}, "/")
+      dest = file_path.gsub(@content_dir, @build_dir).gsub(%r{/[\w-]+(\.\w+)+$}, "/")
 
       if ::File.directory?(file_path)
         FileUtils.mkdir_p(file_path.gsub(@content_dir, @build_dir))

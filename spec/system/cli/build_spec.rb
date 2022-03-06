@@ -92,6 +92,7 @@ RSpec.describe "soy build" do
       "#{build_dir}/nested/content.html",
       "#{build_dir}/about.html",
       "#{build_dir}/contact.html",
+      "#{build_dir}/hello-world.html",
       "#{build_dir}/index.html"
     )
   end
