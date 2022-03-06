@@ -75,9 +75,4 @@ RSpec.describe "soy build" do
       "#{build_dir}/index.html"
     )
   end
-
-  it "supports the b alias" do
-    cmd_output = run_cmd("b #{fixture_dir}")
-    expect(cmd_output).to match(/Building site/)
-  end
 end
