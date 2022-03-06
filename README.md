@@ -50,6 +50,7 @@ fermenting...
 ## Bugs / Features
 
 - Write templates in ERB and use the Ruby you know and love
+- Author content in Markdown or HTML
 - Boot up a server and watch for changes
 
 ## Installation
