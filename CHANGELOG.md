@@ -5,6 +5,7 @@
 - Adds support for extension-less path serving in `soy server`
 - Changes default port from Puma's default 9292 to 4848
 - Adds support for `--port` flag with `soy server`, example: `soy server --port 4200` to run local server on another port
+- Adds ability to process content nested within folders
 
 ## [0.1.0] - 2022-03-03
 
