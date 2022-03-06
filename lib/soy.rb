@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+require_relative "soy/helpers"
+
 require_relative "soy/builder"
+require_relative "soy/cli"
 require_relative "soy/file"
 require_relative "soy/renderer"
 require_relative "soy/server"

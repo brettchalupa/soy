@@ -5,14 +5,20 @@ require "fileutils"
 module Soy
   # Builds the static site content
   class Builder
+    include Helpers
+
     def initialize(project_dir)
       @project_dir = project_dir || Dir.pwd
       @build_dir = "#{@project_dir}/build/"
     end
 
     def call
-      FileUtils.mkdir_p(@build_dir)
-      process_dir("#{@project_dir}/content")
+      puts "Building site..."
+      time = elapsed do
+        FileUtils.mkdir_p(@build_dir)
+        process_dir("#{@project_dir}/content")
+      end
+      puts "Site successfully built in #{time} seconds"
     end
 
     private

@@ -23,13 +23,13 @@ RSpec.describe "CLI" do
       output = run_cmd("help")
       expect(output).to match(/Soy v/)
       expect(output).to match(/Available commands:/)
-      expect(output).to match(/version \(v\) - current version of the library/)
+      expect(output).to match(/version - Output installed Soy version/)
     end
 
     ["h", "-h", "--help"].each do |ali|
       it "supports the #{ali} alias" do
         output = run_cmd(ali)
-        expect(output).to match(/version \(v\) - current version of the library/)
+        expect(output).to match(/Available commands:/)
       end
     end
   end

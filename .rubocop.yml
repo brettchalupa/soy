@@ -35,6 +35,9 @@ RSpec/ExampleLength:
 RSpec/MessageSpies:
   EnforcedStyle: receive
 
+RSpec/NestedGroups:
+  Max: 5
+
 RSpec/NotToNot:
   EnforcedStyle: to_not
 

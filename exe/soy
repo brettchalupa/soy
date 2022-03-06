@@ -1,37 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "soy"
+require "soy/cli"
 
-def elapsed
-  starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  yield
-  ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  (ending - starting).round(6)
-end
-
-first_arg = ARGV[0]
-case first_arg
-when "build", "b"
-  puts "Building site..."
-  time = elapsed do
-    Soy::Builder.new(ARGV[1]).call
-  end
-  puts "Site successfully built in #{time} seconds"
-when "help", "h", "-h", "--help", nil
-  puts "Soy v#{Soy::VERSION}\n\n"
-  puts "Available commands:\n"
-  puts "\tbuild (b) - generate site in the build directory"
-  puts "\tnew (n) - create a new Soy site\n\t\tsoy new SITE_NAME"
-  puts "\tserver (s) - rebuild site on changes and start HTTP server"
-  puts "\tversion (v) - current version of the library"
-when "new", "n"
-  Soy.new_site(ARGV[1])
-when "server", "serve", "s"
-  Soy::Server.start(ARGV[1])
-when "version", "v", "-v", "--version"
-  puts Soy::VERSION
-else
-  puts "`#{first_arg}` is not a command"
-  puts "Run `soy help` for list of commands"
-end
+Soy::Cli.new(ARGV).run
