@@ -22,7 +22,7 @@ RSpec.describe "soy build" do
 
       <h1>Hello from Soy</h1>
 
-      <img src="/tofu.png" alt="Drawn image of a brick of tofu with eyes and a smile" />
+      <img src="/images/image.png" alt="Drawn image of a brick of tofu with eyes and a smile" />
 
         </body>
       </html>
@@ -68,8 +68,28 @@ RSpec.describe "soy build" do
 
     expect(File.read("#{build_dir}/contact.html")).to eql(html_contact_output)
 
-    expect(Dir.glob("#{build_dir}/**")).to contain_exactly(
-      "#{build_dir}/image.png",
+    html_nested_content_output = <<~HTML
+      <html>
+        <head>
+          <title>Nested Content</title>
+        </head>
+        <body>
+
+      <h1 id="nested-content">Nested Content</h1>
+
+      <p>It works!</p>
+
+        </body>
+      </html>
+    HTML
+
+    expect(File.read("#{build_dir}/nested/content.html")).to eql(html_nested_content_output)
+
+    expect(Dir.glob("#{build_dir}/**/*")).to contain_exactly(
+      "#{build_dir}/images",
+      "#{build_dir}/images/image.png",
+      "#{build_dir}/nested",
+      "#{build_dir}/nested/content.html",
       "#{build_dir}/about.html",
       "#{build_dir}/contact.html",
       "#{build_dir}/index.html"
