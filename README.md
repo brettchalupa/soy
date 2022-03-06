@@ -1,5 +1,15 @@
 ![Soy mascot Tofu](demo/content/tofu.png)
 
+```
+   oo_       .-.   wWw  wWw 
+  /  _)-<  c(O_O)c (O)  (O) 
+  \__ `.  ,'.---.`,( \  / ) 
+     `. |/ /|_|_|\ \\ \/ /  
+     _| || \_____/ | \o /   
+  ,-'   |'. `---' .`_/ /    
+ (_..--'   `-...-' (_.'     
+```
+
 # Soy
 
 **A static-site generator for Rubyists**
