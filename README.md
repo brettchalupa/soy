@@ -66,7 +66,7 @@ Supported Rubies:
 3. Move into it the new site's directory
 4. Run `soy server` to get to building!
 
-Your site will then be accessible at [localhost:9292](http://localhost:9292)
+Your site will then be accessible at [localhost:4848](http://localhost:4848)
 
 ## Usage
 

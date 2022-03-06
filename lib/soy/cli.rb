@@ -41,9 +41,17 @@ module Soy
       },
       server: {
         aliases: %w[s serve],
-        description: "Start development server & rebuild site on changes, supports passing path to site directory",
-        examples: ["soy server", "soy server path/to/site"],
-        run: ->(args) { Soy::Server.start(args[1]) }
+        description: "Start development server & rebuild site on changes," \
+                     "supports passing path to site directory and an optional --port arg",
+        examples: ["soy server", "soy server path/to/site", "soy server --port=4040"],
+        run: lambda do |args|
+          opts = {}
+          OptionParser.new do |parser|
+            parser.banner = "soy server option flags"
+            parser.on("-p", "--port [PORT]", Integer, "HTTP to run the server at")
+          end.parse!(args, into: opts)
+          Soy::Server.start(args[1], port: opts[:port])
+        end
       },
       version: {
         aliases: ["v", "-v", "--version"],

@@ -10,12 +10,15 @@ require "rack/show_exceptions"
 module Soy
   # Container of data for a given page
   class Server
-    def self.start(dir = Dir.pwd)
-      new(dir).call
+    DEFAULT_PORT = 4848
+
+    def self.start(dir = Dir.pwd, port: DEFAULT_PORT)
+      new(dir, port).call
     end
 
-    def initialize(dir)
+    def initialize(dir, port)
       @dir = dir || Dir.pwd
+      @port = port || DEFAULT_PORT
       @relative_output_dir = "build"
       @output_dir = "#{@dir}/#{@relative_output_dir}"
       @builder = Builder.new(@dir)
@@ -40,7 +43,7 @@ module Soy
 
     def start_server
       puts "Serving files from #{@output_dir}"
-      Rack::Server.start(app: app, Port: 9292)
+      Rack::Server.start(app: app, Port: @port)
     end
 
     def app

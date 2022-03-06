@@ -61,7 +61,7 @@ RSpec.describe Soy::Cli do
       let(:args) { ["server"] }
 
       it "boots the server" do
-        expect(Soy::Server).to receive(:start).with(nil)
+        expect(Soy::Server).to receive(:start).with(nil, port: nil)
 
         cli.run
       end
@@ -70,7 +70,17 @@ RSpec.describe Soy::Cli do
         let(:args) { %w[server demo] }
 
         it "passes it to the server" do
-          expect(Soy::Server).to receive(:start).with("demo")
+          expect(Soy::Server).to receive(:start).with("demo", port: nil)
+
+          cli.run
+        end
+      end
+
+      context "when the port flag is provided" do
+        let(:args) { ["server", "demo", "--port=8080"] }
+
+        it "passes it to the server" do
+          expect(Soy::Server).to receive(:start).with("demo", port: 8080)
 
           cli.run
         end
