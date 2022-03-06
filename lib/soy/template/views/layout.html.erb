@@ -1,8 +1,12 @@
-<html>
-  <head>
-    <title><%= @page.title || "Your Site" %></title>
-  </head>
+<!doctype html>
 
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= @page.title || "Your Site" %></title>
+    <link href="/styles.css" rel="stylesheet">
+  </head>
   <body>
     <%= yield %>
   </body>

@@ -19,5 +19,13 @@ module Soy
         public_send("#{attr}=".to_sym, attr_val)
       end
     end
+
+    def method_missing(_)
+      nil
+    end
+
+    def respond_to_missing?
+      true
+    end
   end
 end

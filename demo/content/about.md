@@ -1,4 +1,4 @@
-<% @page.set(title: "About") %>
+<% @page.set(title: "About", description: "Some generic metadata description") %>
 
 # <%= @page.title %>
 

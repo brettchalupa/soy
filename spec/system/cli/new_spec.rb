@@ -18,7 +18,7 @@ RSpec.describe "soy new" do
 
     expect(output).to match(/New Soy site created, view in: new_site/)
 
-    [".gitignore", "content/index.html.erb", "views/layout.html.erb"].each do |file|
+    [".gitignore", "content/index.html.erb", "views/layout.html.erb", "content/styles.css"].each do |file|
       expect(File.read("new_site/#{file}")).to eql(File.read("lib/soy/template/#{file}"))
     end
 

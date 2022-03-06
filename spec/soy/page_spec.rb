@@ -11,12 +11,16 @@ RSpec.describe Soy::Page do
 
       expect(page.title).to eql("Top 10 Dogs")
       expect(page.description).to eql("So many doggos")
-
-      expect { page.invalid }.to raise_error(NoMethodError)
     end
 
     it "only accepts Hash args" do
       expect { page.set(100) }.to raise_error(ArgumentError)
+    end
+  end
+
+  describe "calling a method that does not exist" do
+    it "returns nil" do
+      expect(page.bogus).to be_nil
     end
   end
 end
