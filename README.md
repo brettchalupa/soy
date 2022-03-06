@@ -1,4 +1,4 @@
-![Soy mascot Tofu](demo/content/tofu.png)
+![Soy mascot Tofu](demo/content/images/tofu.png)
 
 ```
    oo_       .-.   wWw  wWw 
