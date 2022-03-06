@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.2.0] - 2022-03-06
+
 - Adds support for ingesting Markdown and outputting HTML
 - Adds support for `.erb`-less HTML and Markdown file names while still processing with ERB
 - Adds support for extension-less path serving in `soy server`
